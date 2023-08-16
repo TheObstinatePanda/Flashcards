@@ -12,7 +12,8 @@ export const cardsSlice = createSlice({
                     ...state.cards,
                     [action.payload.id]: {
                         id: action.payload.id,
-                        
+                        front: action.payload.front,
+                        back: action.payload.back,                        
                     }
                 }
             }

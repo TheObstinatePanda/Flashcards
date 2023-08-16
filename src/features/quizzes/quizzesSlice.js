@@ -7,8 +7,8 @@ export const createQuiz = createAsyncThunk(
         const response = await addQuiz(quiz);
         dispatch(response);
         const quizId = {
-            quizId: response.payload, 
-            topic: response.payload.topicId
+            quizId: response.payload.id, 
+            topicId: response.payload.topicId
         };
         const addedQuiz = await addQuizId(quizId);
         dispatch(addedQuiz);
@@ -16,7 +16,7 @@ export const createQuiz = createAsyncThunk(
 )
 
 export const quizzesSlice = createSlice({
-    name: 'quizzes',
+    name: 'quizzesSlice',
     initialState: {quizzes: {} },
     reducers: {
         addQuiz: (state, action) => {
@@ -35,7 +35,7 @@ export const quizzesSlice = createSlice({
     },
     failedToSaveQuiz: false,
     savingQuiz: false,
-    extraReducser: (builder) => {
+    extraReducers: (builder) => {
         builder
             .addCase(createQuiz.pending, (state) => {
                 state.savingQuiz = true;
