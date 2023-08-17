@@ -7,8 +7,7 @@ export const cardsSlice = createSlice({
     },
     reducers: {
         addCard: (state, action) => {
-            return {
-                cards: {
+            state.cards = {
                     ...state.cards,
                     [action.payload.id]: {
                         id: action.payload.id,
@@ -16,7 +15,6 @@ export const cardsSlice = createSlice({
                         back: action.payload.back,                        
                     }
                 }
-            }
         }
     }
 })
