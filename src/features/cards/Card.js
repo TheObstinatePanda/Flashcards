@@ -7,7 +7,7 @@ import { selectCards } from "./cardsSlice";
 export default function Card({ id }) {
   const cards = useSelector(selectCards);
   console.log('testing ')
-  const card = cards.id;
+  const card = cards[id];
   const [flipped, setFlipped] = useState(false);
 
   return (
